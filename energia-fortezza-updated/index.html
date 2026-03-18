@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Energia Fortezza — Sistemi solari con batteria LiFePO₄ per ville in Liguria. Autonomia totale, componenti riparabili, senza cloud esterni.">
+<title>Energia Fortezza — Sistemi Solari · Liguria</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ── PAGE-LEVEL EXTRAS ── */
+body { background: #07070a; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: flex-end;
+  padding-bottom: 120px;
+}
+
+/* Hero text readability */
+#hero .headline-xl {
+  text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9);
+  font-weight: 600;
+}
+#hero .body-lg {
+  text-shadow: 0 1px 8px rgba(0,0,0,0.9), 0 2px 16px rgba(0,0,0,0.7);
+  font-weight: 500;
+  color: rgba(255,255,255,0.95) !important;
+}
+#hero .hero-eyebrow {
+  text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+}
+
+#hero .hero-video-wrap { display: none; }
+
+#hero .overlay-dark {
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.70) 0%,
+    rgba(0,0,0,0.50) 30%,
+    rgba(0,0,0,0.25) 55%,
+    rgba(0,0,0,0.65) 100%
+  );
+}
+.hero-content { max-width: 820px; }
+.hero-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; letter-spacing: 0.45em; font-weight: 500;
+  text-transform: uppercase; color: rgba(232,87,42,0.9);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-eyebrow::before {
+  content: ''; width: 32px; height: 1px; background: var(--orange);
+}
+.hero-live {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; letter-spacing: 0.25em;
+  color: rgba(57,255,136,0.8); text-transform: uppercase;
+  background: rgba(57,255,136,0.07);
+  border: 1px solid rgba(57,255,136,0.15);
+  padding: 5px 12px; border-radius: 2px;
+  margin-left: 16px;
+}
+.live-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #39ff88;
+  animation: livePulse 1.5s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(57,255,136,0.8);
+}
+@keyframes livePulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.3)} }
+
+/* ── INDEPENDENCE ── */
+#independence {
+  background: #07070a;
+  min-height: 100vh;
+  padding: 120px 0;
+  align-items: center;
+}
+.independence-bg {
+  position: absolute; right: 0; top: 0; bottom: 0;
+  width: 55%;
+  background-image: url('images/hero-night.jpg');
+  background-size: cover; background-position: 60% center;
+}
+.independence-bg::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, #07070a 0%, rgba(7,7,10,0.4) 60%, rgba(7,7,10,0.1) 100%);
+}
+.phone-mockup {
+  position: relative;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 32px;
+}
+.phone-mockup img {
+  width: 100%; display: block;
+  filter: saturate(1.1) brightness(1.05);
+}
+
+/* ── FREEDOM ── */
+#freedom {
+  background: #0a0a0d;
+  padding: 120px 0;
+  min-height: 100vh;
+  align-items: center;
+}
+.freedom-split-img {
+  display: none;
+}
+.vs-comparison {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  gap: 0; align-items: stretch;
+  margin-top: 56px;
+}
+.vs-col {
+  padding: 40px;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.vs-col.bad {
+  background: rgba(232,87,42,0.04);
+  border-color: rgba(232,87,42,0.15);
+}
+.vs-col.good {
+  background: rgba(0,200,140,0.04);
+  border-color: rgba(0,200,140,0.15);
+}
+.vs-divider {
+  display: flex; align-items: center; justify-content: center;
+  width: 56px;
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.vs-label-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; letter-spacing: 0.15em; font-weight: 700;
+  color: rgba(255,255,255,0.2); text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+.vs-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; letter-spacing: 0.2em; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 20px;
+}
+.vs-col.bad .vs-title { color: var(--orange); }
+.vs-col.good .vs-title { color: rgba(0,200,140,0.9); }
+.vs-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px; font-weight: 300;
+  margin-bottom: 4px; line-height: 1;
+}
+.vs-col.bad .vs-price { color: rgba(232,87,42,0.7); }
+.vs-col.good .vs-price { color: rgba(0,200,140,0.7); }
+.vs-items { list-style: none; margin-top: 24px; }
+.vs-items li {
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px; font-weight: 300;
+  color: rgba(240,237,232,0.5);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex; align-items: center; gap: 10px;
+}
+.vs-items li::before { font-size: 12px; flex-shrink: 0; }
+.vs-col.bad .vs-items li::before { content: '✕'; color: rgba(232,87,42,0.6); }
+.vs-col.good .vs-items li::before { content: '✓'; color: rgba(0,200,140,0.6); }
+
+/* ── SOLARKEEP ── */
+#solarkeep {
+  min-height: 100vh;
+  padding: 120px 0;
+  align-items: center;
+}
+.solarkeep-bg {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 60%;
+  background-image: url('images/monitoring-hand.jpg');
+  background-size: cover; background-position: 40% center;
+}
+.solarkeep-bg::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(270deg, #07070a 0%, rgba(7,7,10,0.5) 55%, rgba(7,7,10,0.1) 100%);
+}
+.solarkeep-content { margin-left: auto; max-width: 560px; }
+.feature-list { list-style: none; margin-top: 32px; }
+.feature-list li {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.feature-list li:last-child { border-bottom: none; }
+.feature-icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(232,87,42,0.1);
+  border: 1px solid rgba(232,87,42,0.2);
+  border-radius: 2px;
+  font-size: 16px;
+}
+.feature-text h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.05em;
+  color: var(--cream); margin-bottom: 3px;
+}
+.feature-text p {
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px; font-weight: 300;
+  color: rgba(240,237,232,0.4); line-height: 1.5;
+}
+
+/* ── REPAIR ── */
+#repair {
+  background: #08080b;
+  padding: 120px 0; min-height: 100vh;
+  align-items: center;
+}
+.repair-img-wrap {
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.repair-img-wrap img {
+  width: 100%; display: block;
+  filter: saturate(0.9);
+}
+.repair-img-wrap::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 50%, rgba(7,7,10,0.5));
+}
+
+/* ── NETWORK ── */
+#network {
+  min-height: 100vh;
+  padding: 120px 0;
+  align-items: center;
+}
+.network-text { max-width: 600px; margin: 0 auto; text-align: center; }
+
+/* ── VERNAZZA FULL ── */
+#vernazza {
+  min-height: 60vh;
+  align-items: center; justify-content: center;
+  text-align: center;
+}
+.vernazza-quote {
+  max-width: 800px; margin: 0 auto;
+}
+
+/* ── CONTACT ── */
+#contact {
+  background: #07070a;
+  padding: 120px 0;
+  min-height: 80vh;
+  align-items: center;
+}
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+}
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; letter-spacing: 0.25em; font-weight: 600;
+  text-transform: uppercase; color: rgba(240,237,232,0.75);
+}
+.form-input, .form-select, .form-textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--cream);
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px; font-weight: 300;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  border-radius: 2px;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: rgba(232,87,42,0.4);
+}
+.form-select option { background: #111318; }
+.form-textarea { resize: vertical; min-height: 120px; }
+.contact-info { }
+.contact-info-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.contact-info-icon {
+  font-size: 20px; flex-shrink: 0;
+  width: 40px; text-align: center;
+  color: var(--orange);
+}
+.contact-info-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; letter-spacing: 0.2em;
+  font-weight: 700; text-transform: uppercase;
+  color: rgba(232,87,42,0.85); margin-bottom: 6px;
+}
+.contact-info-value {
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px; font-weight: 400; color: #ffffff;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #040406;
+  padding: 48px 56px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 300;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(240,237,232,0.4);
+}
+.footer-logo span { color: var(--orange); }
+.footer-copy {
+  font-family: 'Barlow', sans-serif;
+  font-size: 11px; color: rgba(240,237,232,0.2);
+  letter-spacing: 0.05em;
+}
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px; font-style: italic;
+  color: rgba(240,237,232,0.2);
+}
+
+/* ══════════════════════════════════════════
+   MOBILE — max 768px
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* NAV */
+  .nav-links { display: none; }
+  .nav { padding: 0 20px; }
+
+  /* CONTAINER */
+  .container { padding: 0 20px; }
+
+  /* HERO */
+  #hero {
+    padding-top: 100px;
+    padding-bottom: 60px;
+    align-items: flex-start;
+  }
+  .hero-content { max-width: 100%; }
+  .headline-xl { font-size: clamp(36px, 9vw, 56px); }
+
+  /* STATS ROW — вертикально на мобиле */
+  .stats-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .stat-item {
+    padding: 20px 16px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .stat-number {
+    font-size: 36px !important;
+  }
+  .stat-label { font-size: 9px; }
+
+  /* FREEDOM — одна колонка */
+  .vs-comparison {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0;
+  }
+  .vs-divider {
+    width: 100%;
+    height: 40px;
+    writing-mode: horizontal-tb;
+  }
+  .vs-label-text {
+    writing-mode: horizontal-tb;
+    letter-spacing: 0.3em;
+  }
+  .vs-col { padding: 28px 20px; }
+  .vs-col img { max-height: 200px; object-fit: cover; }
+
+  /* SOLARKEEP */
+  .solarkeep-bg { width: 100%; height: 50vh; position: relative; }
+  .solarkeep-content { margin-left: 0; max-width: 100%; margin-top: 20px; }
+
+  /* SPLIT */
+  .split {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  /* REPAIR */
+  #repair { padding: 60px 0; }
+
+  /* CALCOLATORE grid */
+  #calcolatore [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  #calcolatore [style*="grid-template-columns:1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  #calcolatore .card { padding: 28px !important; }
+
+  /* RECENSIONI */
+  #recensioni [style*="grid-template-columns:repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* UPGRADE comparison */
+  #liberta [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* PREZZI cards */
+  #prezzi [style*="grid-template-columns:1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* PROCESSO cards */
+  #processo [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* SECTIONS padding */
+  section { padding: 60px 0 !important; }
+  #hero { padding-bottom: 60px !important; }
+
+  /* HEADLINE */
+  .headline-lg { font-size: clamp(28px, 8vw, 44px); }
+  .headline-md { font-size: clamp(22px, 6vw, 32px); }
+  .body-lg { font-size: 15px; }
+
+  /* BTN */
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <img src="images/logo.png" alt="Energia Fortezza" class="nav-logo-img">
+    Energia <span>Fortezza</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#independence">Indipendenza</a></li>
+    <li><a href="#freedom">Approccio</a></li>
+    <li><a href="#repair">Assistenza</a></li>
+    <li><a href="#prezzi">Prezzi</a></li>
+    <li><a href="#calcolatore">Calcolatore</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Preventivo</a>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="bg-image hero-bg" style="background-image:url('images/hero-villa-pool.jpg'); opacity:1; z-index:1;"></div>
+  <div class="overlay-dark" style="z-index:2;"></div>
+  <div class="overlay-bottom" style="z-index:2;"></div>
+
+  <div class="container" style="position:relative; z-index:3;">
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal">
+        Sistemi solari · Liguria
+      </div>
+
+      <h1 class="headline-xl reveal delay-1">
+        Luce e calore<br>anche quando<br><em>la rete si ferma.</em>
+      </h1>
+
+      <p class="body-lg reveal delay-2" style="margin-top: 28px;">
+        Produci energia dal sole, la accumuli in batteria, la usi quando serve — 
+        anche durante un blackout. Chiavi in mano in Liguria e Lunigiana, 
+        dal sopralluogo all'attivazione.
+      </p>
+
+      <div class="reveal delay-3" style="margin-top: 40px; display:flex; gap:16px; flex-wrap:wrap;">
+        <a href="#contact" class="btn"><span>Sopralluogo gratuito</span><span class="btn-arrow">→</span></a>
+        <a href="#calcolatore" class="btn" style="background:transparent; border-color:rgba(255,255,255,0.15); color:rgba(240,237,232,0.6);">
+          <span>Calcola il risparmio</span>
+        </a>
+      </div>
+
+      <div class="stats-row reveal delay-4">
+        <div class="stat-item">
+          <div class="stat-number" data-count="8" data-suffix="–15k€">0</div>
+          <div class="stat-label">Costo chiavi in mano</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="50" data-suffix="%">0</div>
+          <div class="stat-label">Detrazione fiscale</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="25" data-suffix=" anni">0</div>
+          <div class="stat-label">Garanzia pannelli</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="24" data-suffix="h">0</div>
+          <div class="stat-label">Risposta preventivo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scopri</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     INDEPENDENCE
+══════════════════════════════════════════ -->
+<section id="independence">
+  <div class="independence-bg" data-parallax="0.3"></div>
+  <div class="overlay-top"></div>
+  <div class="overlay-bottom"></div>
+
+  <div class="container">
+    <div style="max-width: 520px;">
+      <div class="section-label reveal">Indipendenza</div>
+      <h2 class="headline-lg reveal delay-1">
+        Quando manca la luce,<br>la tua casa <em>funziona lo stesso.</em>
+      </h2>
+      <p class="body-lg reveal delay-2" style="margin-top: 24px;">
+        Con una batteria LiFePO₄ installata in casa, 
+        il tuo sistema continua a funzionare durante i blackout. 
+        Luci, frigorifero, climatizzatore — tutto acceso. 
+        Anche quando il quartiere è al buio.
+      </p>
+
+      <div class="quote-block reveal delay-3" style="margin-top: 40px;">
+        <p class="quote-text">
+          "Una casa che non si ferma mai."
+        </p>
+      </div>
+
+      <div class="stats-row reveal delay-4" style="margin-top: 40px; padding-top: 32px;">
+        <div class="stat-item">
+          <div class="stat-number" data-count="10" data-suffix="h+">0</div>
+          <div class="stat-label">Autonomia notturna media</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="15" data-suffix=" anni">0</div>
+          <div class="stat-label">Vita stimata batteria</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FREEDOM — APPROCCIO
+══════════════════════════════════════════ -->
+<section id="freedom" style="display:block; padding: 120px 0;">
+  <div class="overlay-dark" style="background: rgba(10,10,13,0.97);"></div>
+
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 72px;">
+      <div class="section-label reveal" style="justify-content:center;">Il nostro approccio</div>
+      <h2 class="headline-lg reveal delay-1">
+        Prima capiamo.<br><em>Poi consigliamo.</em>
+      </h2>
+      <p class="body-lg reveal delay-2" style="max-width:600px; margin: 24px auto 0; color: rgba(240,237,232,0.7);">
+        Tesla, Huawei, SolarEdge — sono ottime marche. Le installiamo.
+        Il nostro lavoro non è vendere un brand, è trovare la soluzione giusta per te.
+        A volte è un sistema di marca. A volte è un sistema aperto. Dipende da te.
+      </p>
+    </div>
+
+    <!-- 3 CARDS: quando cosa -->
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; max-width:960px; margin:0 auto;" class="reveal delay-2">
+
+      <div class="card" style="border-color:rgba(232,87,42,0.15); padding:32px 28px;">
+        <div style="font-family:'Cormorant Garamond'; font-size:40px; font-weight:300; color:var(--orange); line-height:1; margin-bottom:16px;">01</div>
+        <h3 style="font-family:'Cormorant Garamond'; font-size:22px; font-weight:300; color:var(--cream); margin-bottom:12px;">Vuoi semplicità</h3>
+        <p style="font-family:'Barlow'; font-size:14px; color:rgba(240,237,232,0.6); line-height:1.7;">
+          App bella, tutto integrato, garanzia del produttore. Installa e dimentica.
+          <strong style="color:rgba(240,237,232,0.85);">Consigliamo un sistema di marca.</strong>
+        </p>
+      </div>
+
+      <div class="card" style="border-color:rgba(200,180,122,0.2); padding:32px 28px;">
+        <div style="font-family:'Cormorant Garamond'; font-size:40px; font-weight:300; color:#c8b47a; line-height:1; margin-bottom:16px;">02</div>
+        <h3 style="font-family:'Cormorant Garamond'; font-size:22px; font-weight:300; color:var(--cream); margin-bottom:12px;">Vuoi indipendenza</h3>
+        <p style="font-family:'Barlow'; font-size:14px; color:rgba(240,237,232,0.6); line-height:1.7;">
+          Nessun cloud esterno, nessuna app proprietaria, monitoraggio locale.
+          <strong style="color:rgba(240,237,232,0.85);">Consigliamo un sistema aperto.</strong>
+        </p>
+      </div>
+
+      <div class="card" style="border-color:rgba(0,200,140,0.15); padding:32px 28px;">
+        <div style="font-family:'Cormorant Garamond'; font-size:40px; font-weight:300; color:rgba(0,200,140,0.8); line-height:1; margin-bottom:16px;">03</div>
+        <h3 style="font-family:'Cormorant Garamond'; font-size:22px; font-weight:300; color:var(--cream); margin-bottom:12px;">Non lo sai ancora</h3>
+        <p style="font-family:'Barlow'; font-size:14px; color:rgba(240,237,232,0.6); line-height:1.7;">
+          Ti mostriamo i dati reali di entrambe le opzioni: costi, garanzie, pro e contro.
+          <strong style="color:rgba(240,237,232,0.85);">Decidi tu, senza pressioni.</strong>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM LINE -->
+    <div style="max-width:960px; margin:32px auto 0; padding:24px 32px; border:1px solid rgba(240,237,232,0.06); background:rgba(255,255,255,0.02); text-align:center;" class="reveal delay-3">
+      <p style="font-family:'Barlow'; font-size:14px; color:rgba(240,237,232,0.5); line-height:1.8; margin:0;">
+        Non abbiamo accordi esclusivi con nessun produttore. Non guadagniamo di più installando Tesla o Deye.
+        <strong style="color:rgba(240,237,232,0.8);">Il nostro interesse è che il tuo sistema funzioni bene per 20 anni.</strong>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SOLARKEEP
+══════════════════════════════════════════ -->
+<section id="solarkeep">
+  <div class="solarkeep-bg" data-parallax="0.2"></div>
+  <div class="overlay-right"></div>
+  <div class="overlay-top"></div>
+  <div class="overlay-bottom"></div>
+
+  <div class="container">
+    <div class="solarkeep-content">
+      <div class="section-label reveal">Monitoraggio · Sistema</div>
+      <h2 class="headline-lg reveal delay-1">
+        Sappiamo come va<br>il tuo sistema.<br><em>In tempo reale.</em>
+      </h2>
+      <p class="body-lg reveal delay-2" style="margin-top: 24px;">
+        Monitoraggio in tempo reale della tua produzione, batteria e consumi. 
+        Notifiche automatiche su anomalie e guasti. 
+        I dati restano a casa tua — nessun cloud esterno, nessun abbonamento.
+      </p>
+
+      <ul class="feature-list reveal delay-3">
+        <li>
+          <div class="feature-icon">⚡</div>
+          <div class="feature-text">
+            <h4>Produzione in tempo reale</h4>
+            <p>kW solari, stato batteria, consumo istantaneo</p>
+          </div>
+        </li>
+        <li>
+          <div class="feature-icon">🤖</div>
+          <div class="feature-text">
+            <h4>Avvisi automatici</h4>
+            <p>Se qualcosa non funziona correttamente, ricevi una notifica immediata — prima ancora di accorgertene</p>
+          </div>
+        </li>
+        <li>
+          <div class="feature-icon">🔒</div>
+          <div class="feature-text">
+            <h4>Server locale — nessun cloud</h4>
+            <p>I tuoi dati rimangono a casa tua. Sempre. Funziona anche offline.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="reveal delay-4" style="margin-top: 36px; padding: 20px 24px; border-left: 2px solid rgba(232,87,42,0.4); background: rgba(232,87,42,0.05);">
+        <p style="font-family:'Barlow Condensed'; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--orange); margin-bottom:6px;">Manutenzione</p>
+        <p style="font-family:'Barlow',sans-serif; font-size:15px; color:rgba(240,237,232,0.85); line-height:1.6;">
+          Il monitoraggio è incluso in ogni installazione. Gli interventi di manutenzione sono disponibili su richiesta — <strong style="color:var(--cream);">senza abbonamenti obbligatori, senza canoni mensili.</strong>
+        </p>
+      </div>
+
+      <div class="reveal delay-5" style="margin-top: 32px;">
+        <a href="#contact" class="btn"><span>Scopri il monitoraggio</span><span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     REPAIR
+══════════════════════════════════════════ -->
+<section id="repair" style="display:block; padding: 120px 0;">
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="section-label reveal">Assistenza locale</div>
+        <h2 class="headline-lg reveal delay-1">
+          Un numero di telefono.<br>Una persona reale.<br><em>Qui vicino a te.</em>
+        </h2>
+        <p class="body-lg reveal delay-2" style="margin-top: 24px;">
+          Non un call center. Non un ticket online. Quando hai un problema,
+          chiami direttamente il tecnico che ha installato il tuo sistema —
+          e conosce ogni componente.
+        </p>
+
+        <div class="card reveal delay-3" style="margin-top: 40px;">
+          <p style="font-family: 'Barlow Condensed'; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--orange); margin-bottom:12px;">Come funziona</p>
+          <p class="body-md">
+            Il sistema di monitoraggio ci avvisa automaticamente se qualcosa non va —
+            spesso prima che tu te ne accorga. In molti casi risolviamo da remoto.
+            Se serve un intervento fisico, siamo in Liguria e Lunigiana.
+          </p>
+        </div>
+
+        <div class="reveal delay-4" style="margin-top: 32px;">
+          <a href="#contact" class="btn"><span>Parla con noi</span><span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="reveal-right delay-1">
+        <div class="repair-img-wrap">
+          <img src="images/repair-solar.jpg" alt="Sistema solare installato">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     NETWORK
+══════════════════════════════════════════ -->
+<section id="network">
+  <div class="bg-image" style="background-image: url('images/liguria-map.jpg'); background-position: center 40%;" data-parallax="0.2"></div>
+  <div class="overlay-dark" style="background: rgba(7,7,10,0.7);"></div>
+  <div class="overlay-bottom"></div>
+
+  <div class="container">
+    <div class="network-text">
+      <div class="section-label reveal" style="justify-content:center;">Rete · Liguria</div>
+      <h2 class="headline-lg reveal delay-1" style="text-align:center;">
+        Non esci dalla rete.<br>Smetti di <em>dipendere da essa.</em>
+      </h2>
+      <p class="body-lg reveal delay-2" style="text-align:center; margin: 24px auto 0;">
+        Con i pannelli e la batteria produci la maggior parte dell'energia che consumi. 
+        La rete rimane come backup — ma non sei più in balia dei suoi prezzi e dei suoi blackout. 
+        Ogni casa che installa il sistema in Liguria paga meno e dipende meno.
+      </p>
+
+      <div class="stats-row reveal delay-3" style="justify-content:center; margin-top:56px;">
+        <div class="stat-item" style="text-align:center; border:none;">
+          <div class="stat-number" data-count="25" data-suffix=" anni">0</div>
+          <div class="stat-label">Garanzia produzione pannelli</div>
+        </div>
+        <div class="stat-item" style="text-align:center;">
+          <div class="stat-number" data-count="1800" data-suffix="€">0</div>
+          <div class="stat-label">Risparmio medio annuo</div>
+        </div>
+        <div class="stat-item" style="text-align:center; border:none;">
+          <div class="stat-number" data-count="50" data-suffix="%">0</div>
+          <div class="stat-label">Detrazione fiscale disponibile</div>
+        </div>
+      </div>
+
+      <div class="reveal delay-4" style="text-align:center; margin-top:48px;">
+        <a href="#contact" class="btn"><span>Richiedi informazioni</span><span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     VERNAZZA QUOTE
+══════════════════════════════════════════ -->
+<section id="vernazza" style="min-height: 70vh;">
+  <div class="bg-image" style="background-image: url('images/vernazza.jpg'); background-position: center 65%;" data-parallax="0.15"></div>
+  <div class="overlay-dark" style="background: rgba(7,7,10,0.65);"></div>
+
+  <div class="container">
+    <div class="vernazza-quote">
+      <div class="quote-block reveal" style="text-align:center; border-left:none; border-top:1px solid rgba(232,87,42,0.3); padding:48px 40px;">
+        <p class="quote-text" style="font-size: clamp(24px,3vw,42px);">
+          "Non vendiamo impianti. 
+          Costruiamo soluzioni 
+          che funzionano per te 
+          per i prossimi 20 anni."
+        </p>
+        <p style="font-family:'Barlow Condensed'; font-size:10px; letter-spacing:.3em; color:rgba(232,87,42,0.7); text-transform:uppercase; margin-top:24px;">
+          — Energia Fortezza
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PREZZI — ANCHOR
+══════════════════════════════════════════ -->
+<section id="prezzi" style="background:#07070a; padding:80px 0; min-height:auto; display:block; border-top:1px solid rgba(255,255,255,0.04);">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:48px;">
+      <div class="section-label reveal" style="justify-content:center;">Investimento</div>
+      <h2 class="headline-lg reveal delay-1">Quanto costa<br>un sistema <em>completo?</em></h2>
+      <p class="body-md reveal delay-2" style="max-width:520px; margin:16px auto 0; color:rgba(240,237,232,0.6);">
+        Prezzi indicativi chiavi in mano — pannelli, batteria, inverter, installazione, pratiche burocratiche. Con detrazione 50% il costo netto si dimezza.
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; max-width:960px; margin:0 auto;" class="reveal delay-2">
+
+      <div class="card" style="padding:36px 28px; border-color:rgba(240,237,232,0.08); text-align:center;">
+        <div style="font-family:'Barlow Condensed'; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:rgba(240,237,232,0.35); margin-bottom:20px;">Abitazione media</div>
+        <div style="font-family:'Cormorant Garamond'; font-size:52px; font-weight:300; color:var(--cream); line-height:1;">€8.000</div>
+        <div style="font-family:'Barlow Condensed'; font-size:11px; letter-spacing:.1em; color:rgba(240,237,232,0.4); margin:4px 0 20px;">da</div>
+        <div style="border-top:1px solid rgba(255,255,255,0.07); padding-top:20px; text-align:left;">
+          <p style="font-family:'Barlow'; font-size:13px; color:rgba(240,237,232,0.55); line-height:1.8;">
+            6 kWp pannelli<br>
+            10 kWh batteria LiFePO₄<br>
+            Inverter ibrido<br>
+            Monitoraggio incluso
+          </p>
+        </div>
+        <div style="margin-top:20px; padding:10px 16px; background:rgba(232,87,42,0.08); border:1px solid rgba(232,87,42,0.15); border-radius:2px;">
+          <p style="font-family:'Barlow'; font-size:12px; color:rgba(232,87,42,0.9); margin:0;">Con detrazione: da <strong>€4.000</strong> netti</p>
+        </div>
+      </div>
+
+      <div class="card" style="padding:36px 28px; border-color:rgba(232,87,42,0.3); background:rgba(232,87,42,0.04); text-align:center; position:relative;">
+        <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--orange); padding:4px 16px; font-family:'Barlow Condensed'; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:#07070a; white-space:nowrap;">Più richiesto</div>
+        <div style="font-family:'Barlow Condensed'; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:rgba(232,87,42,0.6); margin-bottom:20px;">Villa con piscina</div>
+        <div style="font-family:'Cormorant Garamond'; font-size:52px; font-weight:300; color:var(--orange); line-height:1;">€12.000</div>
+        <div style="font-family:'Barlow Condensed'; font-size:11px; letter-spacing:.1em; color:rgba(240,237,232,0.4); margin:4px 0 20px;">da</div>
+        <div style="border-top:1px solid rgba(255,255,255,0.07); padding-top:20px; text-align:left;">
+          <p style="font-family:'Barlow'; font-size:13px; color:rgba(240,237,232,0.55); line-height:1.8;">
+            10 kWp pannelli<br>
+            15–20 kWh batteria LiFePO₄<br>
+            Inverter ibrido trifase<br>
+            Monitoraggio incluso
+          </p>
+        </div>
+        <div style="margin-top:20px; padding:10px 16px; background:rgba(232,87,42,0.08); border:1px solid rgba(232,87,42,0.15); border-radius:2px;">
+          <p style="font-family:'Barlow'; font-size:12px; color:rgba(232,87,42,0.9); margin:0;">Con detrazione: da <strong>€6.000</strong> netti</p>
+        </div>
+      </div>
+
+      <div class="card" style="padding:36px 28px; border-color:rgba(200,180,122,0.15); text-align:center;">
+        <div style="font-family:'Barlow Condensed'; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:rgba(200,180,122,0.5); margin-bottom:20px;">Impianto grande</div>
+        <div style="font-family:'Cormorant Garamond'; font-size:52px; font-weight:300; color:#c8b47a; line-height:1;">Su misura</div>
+        <div style="font-family:'Barlow Condensed'; font-size:11px; letter-spacing:.1em; color:rgba(240,237,232,0.4); margin:4px 0 20px;">&nbsp;</div>
+        <div style="border-top:1px solid rgba(255,255,255,0.07); padding-top:20px; text-align:left;">
+          <p style="font-family:'Barlow'; font-size:13px; color:rgba(240,237,232,0.55); line-height:1.8;">
+            15–30+ kWp<br>
+            Agriturismo, villa grande<br>
+            Accumulo personalizzato<br>
+            Progetto dedicato
+          </p>
+        </div>
+        <div style="margin-top:20px; padding:10px 16px; background:rgba(200,180,122,0.05); border:1px solid rgba(200,180,122,0.12); border-radius:2px;">
+          <p style="font-family:'Barlow'; font-size:12px; color:rgba(200,180,122,0.8); margin:0;">Preventivo gratuito entro 24h</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="font-family:'Barlow'; font-size:11px; color:rgba(240,237,232,0.2); text-align:center; margin-top:24px;">
+      * Prezzi indicativi. Il preventivo definitivo dipende da tetto, distanze, potenza richiesta e marca componenti scelti.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CALCOLATORE RISPARMIO
+══════════════════════════════════════════ -->
+<section id="calcolatore" style="background:#08080b; padding:120px 0; min-height:auto; display:block;">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:64px;">
+      <div class="section-label reveal" style="justify-content:center;">Calcolatore</div>
+      <h2 class="headline-lg reveal delay-1">Quanto puoi <em>risparmiare?</em></h2>
+      <p class="body-md reveal delay-2" style="max-width:520px; margin:16px auto 0;">
+        Inserisci i tuoi dati — ti mostriamo il risparmio reale stimato per la tua abitazione in Liguria.
+      </p>
+    </div>
+    <div class="reveal delay-2" style="max-width:860px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+        <div class="form-group">
+          <label class="form-label">Bolletta elettrica mensile</label>
+          <input type="range" id="calc-bill" min="50" max="600" value="200" step="10"
+            style="width:100%; accent-color:var(--orange); margin:12px 0 4px; cursor:pointer;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="form-label">€50</span>
+            <span id="calc-bill-val" style="font-family:'Cormorant Garamond'; font-size:32px; color:var(--orange);">€200/mese</span>
+            <span class="form-label">€600</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Potenza impianto solare</label>
+          <input type="range" id="calc-kw" min="3" max="20" value="8" step="1"
+            style="width:100%; accent-color:var(--orange); margin:12px 0 4px; cursor:pointer;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="form-label">3 kWp</span>
+            <span id="calc-kw-val" style="font-family:'Cormorant Garamond'; font-size:32px; color:var(--orange);">8 kWp</span>
+            <span class="form-label">20 kWp</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Batteria LiFePO₄</label>
+          <input type="range" id="calc-bat" min="5" max="30" value="10" step="5"
+            style="width:100%; accent-color:var(--orange); margin:12px 0 4px; cursor:pointer;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="form-label">5 kWh</span>
+            <span id="calc-bat-val" style="font-family:'Cormorant Garamond'; font-size:32px; color:var(--orange);">10 kWh</span>
+            <span class="form-label">30 kWh</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Prezzo energia (€/kWh)</label>
+          <input type="range" id="calc-price" min="0.15" max="0.40" value="0.25" step="0.01"
+            style="width:100%; accent-color:var(--orange); margin:12px 0 4px; cursor:pointer;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="form-label">€0.15</span>
+            <span id="calc-price-val" style="font-family:'Cormorant Garamond'; font-size:32px; color:var(--orange);">€0.25/kWh</span>
+            <span class="form-label">€0.40</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:48px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.06);">
+        <div style="background:#08080b; padding:32px 24px; text-align:center;">
+          <div style="font-family:'Barlow Condensed'; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:rgba(240,237,232,0.3); margin-bottom:8px;">Risparmio annuo</div>
+          <div id="res-annual" style="font-family:'Cormorant Garamond'; font-size:44px; font-weight:300; color:var(--orange); line-height:1;">€1.460</div>
+        </div>
+        <div style="background:#08080b; padding:32px 24px; text-align:center;">
+          <div style="font-family:'Barlow Condensed'; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:rgba(240,237,232,0.3); margin-bottom:8px;">Rientro investimento</div>
+          <div id="res-roi" style="font-family:'Cormorant Garamond'; font-size:44px; font-weight:300; color:var(--orange); line-height:1;">7 anni</div>
+        </div>
+        <div style="background:#08080b; padding:32px 24px; text-align:center;">
+          <div style="font-family:'Barlow Condensed'; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:rgba(240,237,232,0.3); margin-bottom:8px;">Produzione annua</div>
+          <div id="res-prod" style="font-family:'Cormorant Garamond'; font-size:44px; font-weight:300; color:var(--orange); line-height:1;">11.600 kWh</div>
+        </div>
+      </div>
+
+      <p style="font-family:'Barlow'; font-size:11px; color:rgba(240,237,232,0.2); text-align:center; margin-top:16px; line-height:1.6;">
+        * Stime orientative: irraggiamento ligure 1.450 kWh/kWp/anno, autoconsumo 70%. Non sostituiscono un preventivo tecnico.
+      </p>
+      <div style="text-align:center; margin-top:32px;">
+        <a href="#contact" class="btn"><span>Richiedi preventivo preciso</span><span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     COME FUNZIONA — TIMELINE
+══════════════════════════════════════════ -->
+<section id="processo" style="background:#07070a; padding:120px 0; min-height:auto; display:block;">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:72px;">
+      <div class="section-label reveal" style="justify-content:center;">Il processo</div>
+      <h2 class="headline-lg reveal delay-1">Dal primo contatto<br>all'<em>autonomia totale.</em></h2>
+    </div>
+    <div style="max-width:900px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div class="card reveal" style="border-color:rgba(232,87,42,0.15); position:relative; overflow:hidden;">
+          <div style="position:absolute; top:-10px; right:16px; font-family:'Cormorant Garamond'; font-size:100px; font-weight:300; color:rgba(232,87,42,0.05); line-height:1;">1</div>
+          <div style="font-family:'Barlow Condensed'; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--orange); margin-bottom:12px;">Giorno 1</div>
+          <h3 style="font-family:'Cormorant Garamond'; font-size:26px; font-weight:300; margin-bottom:12px; color:var(--cream);">Consulenza gratuita</h3>
+          <p class="body-md" style="font-size:14px;">Chiamata o sopralluogo a casa tua. Analizziamo bollette, tetto, consumi, obiettivi. Nessun impegno.</p>
+        </div>
+        <div class="card reveal delay-1" style="border-color:rgba(232,87,42,0.15); position:relative; overflow:hidden;">
+          <div style="position:absolute; top:-10px; right:16px; font-family:'Cormorant Garamond'; font-size:100px; font-weight:300; color:rgba(232,87,42,0.05); line-height:1;">2</div>
+          <div style="font-family:'Barlow Condensed'; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--orange); margin-bottom:12px;">Entro 3 giorni</div>
+          <h3 style="font-family:'Cormorant Garamond'; font-size:26px; font-weight:300; margin-bottom:12px; color:var(--cream);">Progetto su misura</h3>
+          <p class="body-md" style="font-size:14px;">Preventivo dettagliato: marca/modello ogni componente, produzione stimata, ROI, detrazione 50%.</p>
+        </div>
+        <div class="card reveal delay-2" style="border-color:rgba(232,87,42,0.15); position:relative; overflow:hidden;">
+          <div style="position:absolute; top:-10px; right:16px; font-family:'Cormorant Garamond'; font-size:100px; font-weight:300; color:rgba(232,87,42,0.05); line-height:1;">3</div>
+          <div style="font-family:'Barlow Condensed'; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--orange); margin-bottom:12px;">Settimane 2–4</div>
+          <h3 style="font-family:'Cormorant Garamond'; font-size:26px; font-weight:300; margin-bottom:12px; color:var(--cream);">Pratiche e permessi</h3>
+          <p class="body-md" style="font-size:14px;">Gestiamo tutto: DiCo, Comune, allaccio E-Distribuzione. Tu non devi fare nulla.</p>
+        </div>
+        <div class="card reveal delay-3" style="border-color:rgba(232,87,42,0.15); position:relative; overflow:hidden;">
+          <div style="position:absolute; top:-10px; right:16px; font-family:'Cormorant Garamond'; font-size:100px; font-weight:300; color:rgba(232,87,42,0.05); line-height:1;">4</div>
+          <div style="font-family:'Barlow Condensed'; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--orange); margin-bottom:12px;">1–2 giorni</div>
+          <h3 style="font-family:'Cormorant Garamond'; font-size:26px; font-weight:300; margin-bottom:12px; color:var(--cream);">Installazione completa</h3>
+          <p class="body-md" style="font-size:14px;">Pannelli, batteria, inverter, sistema di monitoraggio locale. Tutto montato, configurato, testato. Sistema attivo dal primo giorno.</p>
+        </div>
+        <div class="card reveal delay-4" style="border-color:rgba(0,200,140,0.15); background:rgba(0,200,140,0.03); position:relative; overflow:hidden; grid-column:1/-1;">
+          <div style="display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center;">
+            <div>
+              <div style="font-family:'Barlow Condensed'; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:rgba(0,200,140,0.8); margin-bottom:12px;">Per sempre dopo</div>
+              <h3 style="font-family:'Cormorant Garamond'; font-size:26px; font-weight:300; margin-bottom:12px; color:var(--cream);">Autonomia e supporto</h3>
+              <p class="body-md" style="font-size:14px;">Restiamo al vostro fianco per tutta la vita dell'impianto. Un numero di telefono, una persona reale. Siamo qui se serve — discreti come il sole che lavora sul vostro tetto.</p>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:'Cormorant Garamond'; font-size:72px; font-weight:300; color:rgba(0,200,140,0.6); line-height:1;">∞</div>
+              <div style="font-family:'Barlow Condensed'; font-size:9px; letter-spacing:.2em; color:rgba(240,237,232,0.25); text-transform:uppercase; margin-top:4px;">Autonomia totale</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FAQ
+══════════════════════════════════════════ -->
+<section id="faq" style="background:#09090c; padding:120px 0; min-height:auto; display:block;">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:64px;">
+      <div class="section-label reveal" style="justify-content:center;">Domande frequenti</div>
+      <h2 class="headline-lg reveal delay-1">Le domande che<br>ci fanno <em>sempre.</em></h2>
+    </div>
+    <div style="max-width:800px; margin:0 auto;">
+
+      <div class="faq-item reveal" style="border-bottom:1px solid rgba(255,255,255,0.07);">
+        <button onclick="toggleFaq(this)" style="width:100%; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; padding:28px 0; text-align:left; gap:16px;">
+          <span style="font-family:'Cormorant Garamond'; font-size:22px; font-weight:300; color:var(--cream);">Quanto costa un impianto completo?</span>
+          <span class="faq-icon" style="font-size:22px; color:var(--orange); flex-shrink:0; transition:transform .3s; display:block;">+</span>
+        </button>
+        <div class="faq-a" style="max-height:0; overflow:hidden; transition:max-height .4s cubic-bezier(0.16,1,0.3,1);">
+          <p class="body-md" style="padding-bottom:28px; font-size:15px;">Per un'abitazione con sistema 8 kWp + batteria 10 kWh LiFePO₄: indicativamente <strong style="color:var(--cream);">€8.000–15.000</strong> chiavi in mano, incluso installazione e pratiche. Con detrazione 50% il costo netto scende a €4.000–7.500 recuperati in 10 anni.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal delay-1" style="border-bottom:1px solid rgba(255,255,255,0.07);">
+        <button onclick="toggleFaq(this)" style="width:100%; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; padding:28px 0; text-align:left; gap:16px;">
+          <span style="font-family:'Cormorant Garamond'; font-size:22px; font-weight:300; color:var(--cream);">Ho diritto alla detrazione fiscale del 50%?</span>
+          <span class="faq-icon" style="font-size:22px; color:var(--orange); flex-shrink:0; transition:transform .3s; display:block;">+</span>
+        </button>
+        <div class="faq-a" style="max-height:0; overflow:hidden; transition:max-height .4s cubic-bezier(0.16,1,0.3,1);">
+          <p class="body-md" style="padding-bottom:28px; font-size:15px;">Sì, se sei proprietario dell'abitazione e paghi IRPEF. La detrazione del 50% si recupera in 10 rate annuali uguali. Include pannelli, batteria, inverter e installazione. Ti aiutiamo con tutta la documentazione necessaria.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal delay-2" style="border-bottom:1px solid rgba(255,255,255,0.07);">
+        <button onclick="toggleFaq(this)" style="width:100%; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; padding:28px 0; text-align:left; gap:16px;">
+          <span style="font-family:'Cormorant Garamond'; font-size:22px; font-weight:300; color:var(--cream);">Quanto tempo ci vuole dall'ordine all'installazione?</span>
+          <span class="faq-icon" style="font-size:22px; color:var(--orange); flex-shrink:0; transition:transform .3s; display:block;">+</span>
+        </button>
+        <div class="faq-a" style="max-height:0; overflow:hidden; transition:max-height .4s cubic-bezier(0.16,1,0.3,1);">
+          <p class="body-md" style="padding-bottom:28px; font-size:15px;">In media <strong style="color:var(--cream);">3–6 settimane</strong> dalla firma del contratto. I tempi dipendono principalmente dalle pratiche con il Comune e E-Distribuzione. L'installazione fisica richiede 1–2 giorni.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal delay-3" style="border-bottom:1px solid rgba(255,255,255,0.07);">
+        <button onclick="toggleFaq(this)" style="width:100%; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; padding:28px 0; text-align:left; gap:16px;">
+          <span style="font-family:'Cormorant Garamond'; font-size:22px; font-weight:300; color:var(--cream);">Cosa succede se si rompe qualcosa dopo anni?</span>
+          <span class="faq-icon" style="font-size:22px; color:var(--orange); flex-shrink:0; transition:transform .3s; display:block;">+</span>
+        </button>
+        <div class="faq-a" style="max-height:0; overflow:hidden; transition:max-height .4s cubic-bezier(0.16,1,0.3,1);">
+          <p class="body-md" style="padding-bottom:28px; font-size:15px;">Questa è la nostra differenza principale. I componenti che usiamo (Deye, EVE LF280K, JK BMS) sono standard universali acquistabili ovunque. Una cella EVE costa €60–75, un BMS JK €50–200. Non sei mai dipendente da noi. La documentazione completa consegnata permette a qualsiasi tecnico di intervenire.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal delay-4" style="border-bottom:1px solid rgba(255,255,255,0.07);">
+        <button onclick="toggleFaq(this)" style="width:100%; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; padding:28px 0; text-align:left; gap:16px;">
+          <span style="font-family:'Cormorant Garamond'; font-size:22px; font-weight:300; color:var(--cream);">Il sistema funziona durante un blackout?</span>
+          <span class="faq-icon" style="font-size:22px; color:var(--orange); flex-shrink:0; transition:transform .3s; display:block;">+</span>
+        </button>
+        <div class="faq-a" style="max-height:0; overflow:hidden; transition:max-height .4s cubic-bezier(0.16,1,0.3,1);">
+          <p class="body-md" style="padding-bottom:28px; font-size:15px;">Sì. L'inverter Deye con batteria LiFePO₄ passa in modalità off-grid automaticamente in pochi millisecondi. La tua villa continua mentre il quartiere è al buio. L'autonomia dipende dai tuoi consumi: con carichi base (luci, frigorifero, router) durano 10–15 ore. Con climatizzatore attivo 4–6 ore. Ti calcoliamo l'autonomia precisa in base ai tuoi elettrodomestici.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal delay-5">
+        <button onclick="toggleFaq(this)" style="width:100%; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; padding:28px 0; text-align:left; gap:16px;">
+          <span style="font-family:'Cormorant Garamond'; font-size:22px; font-weight:300; color:var(--cream);">Il monitoraggio ha costi mensili o abbonamenti?</span>
+          <span class="faq-icon" style="font-size:22px; color:var(--orange); flex-shrink:0; transition:transform .3s; display:block;">+</span>
+        </button>
+        <div class="faq-a" style="max-height:0; overflow:hidden; transition:max-height .4s cubic-bezier(0.16,1,0.3,1);">
+          <p class="body-md" style="padding-bottom:28px; font-size:15px;">Il sistema di monitoraggio è incluso nell'installazione. Utilizziamo Solar Assistant su Raspberry Pi — gira a casa tua, nessun cloud esterno, nessun abbonamento, nessun canone mensile. Funziona anche senza connessione internet.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 72px;">
+      <div class="section-label reveal" style="justify-content:center;">Contatti</div>
+      <h2 class="headline-lg reveal delay-1">
+        Iniziamo a <em>progettare</em><br>il tuo sistema.
+      </h2>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <form class="contact-form reveal-left">
+          <div class="form-group">
+            <label class="form-label">Nome e cognome</label>
+            <input type="text" class="form-input" placeholder="Mario Rossi">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Telefono</label>
+            <input type="tel" class="form-input" placeholder="+39 ...">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="mario@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Superficie villa</label>
+            <select class="form-select">
+              <option value="">Seleziona...</option>
+              <option>100–200 m²</option>
+              <option>200–300 m²</option>
+              <option>300–500 m²</option>
+              <option>500+ m²</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Messaggio</label>
+            <textarea class="form-textarea" placeholder="Descrivi brevemente la tua situazione..."></textarea>
+          </div>
+          <button type="submit" class="btn" style="width:100%; justify-content:center; cursor:pointer;">
+            <span>Invia richiesta</span><span class="btn-arrow">→</span>
+          </button>
+          <div class="form-group" style="flex-direction:row; align-items:flex-start; gap:10px; margin-top:4px;">
+            <input type="checkbox" id="privacy-check" required style="margin-top:3px; accent-color:var(--orange); width:16px; height:16px; flex-shrink:0;">
+            <label for="privacy-check" style="font-family:'Barlow'; font-size:12px; color:rgba(240,237,232,0.5); line-height:1.5; cursor:pointer;">
+              Ho letto e accetto la <a href="#" onclick="document.getElementById('privacy-modal').style.display='flex'; return false;" style="color:var(--orange); text-decoration:underline;">Privacy Policy</a>. Acconsento al trattamento dei miei dati personali per ricevere una risposta alla mia richiesta.
+            </label>
+          </div>
+        </form>
+      </div>
+
+      <div class="reveal-right">
+        <div class="section-label">Dove siamo</div>
+        <h3 class="headline-md" style="margin-bottom:32px;">
+          Sarzana, <em>Liguria</em>
+        </h3>
+
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <img src="images/icon-location.jpg" alt="Sede" class="contact-icon-img">
+            </div>
+            <div>
+              <div class="contact-info-label">Sede operativa</div>
+              <div class="contact-info-value">Sarzana, La Spezia · Liguria</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <img src="images/icon-compass.jpg" alt="Area" class="contact-icon-img">
+            </div>
+            <div>
+              <div class="contact-info-label">Area servita</div>
+              <div class="contact-info-value">Liguria · Val di Magra · Costa</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <img src="images/icon-bolt.jpg" alt="Specializzazione" class="contact-icon-img">
+            </div>
+            <div>
+              <div class="contact-info-label">Specializzazione</div>
+              <div class="contact-info-value">Case e ville · Sistemi LiFePO₄</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div style="display:flex; align-items:center; gap:12px; justify-content:center; margin-bottom:12px;">
+      <img src="images/logo.png" alt="Logo" style="width:36px; height:36px; object-fit:contain; border-radius:50%; opacity:0.8;">
+      <div class="footer-logo">Energia <span>Fortezza</span></div>
+    </div>
+    <div class="footer-tagline">Sistemi solari con accumulo · Liguria · Lunigiana</div>
+    <div style="margin:16px 0; font-family:'Barlow'; font-size:12px; color:rgba(240,237,232,0.3); line-height:2;">
+      Sede operativa: Sarzana (SP), Liguria &nbsp;·&nbsp;
+      Email: <a href="mailto:info@energiafortezza.it" style="color:rgba(232,87,42,0.7);">info@energiafortezza.it</a>
+    </div>
+    <div style="margin-bottom:16px;">
+      <a href="#" onclick="document.getElementById('privacy-modal').style.display='flex'; return false;"
+         style="font-family:'Barlow Condensed'; font-size:11px; letter-spacing:.15em; color:rgba(240,237,232,0.3); text-decoration:none; text-transform:uppercase;">
+        Privacy Policy
+      </a>
+      &nbsp;·&nbsp;
+      <a href="#" onclick="document.getElementById('cookie-modal').style.display='flex'; return false;"
+         style="font-family:'Barlow Condensed'; font-size:11px; letter-spacing:.15em; color:rgba(240,237,232,0.3); text-decoration:none; text-transform:uppercase;">
+        Cookie Policy
+      </a>
+    </div>
+    <div class="footer-copy">© 2025 Energia Fortezza · Tutti i diritti riservati</div>
+    <div style="margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06); font-family:'Barlow'; font-size:11px; color:rgba(240,237,232,0.2); line-height:2; text-align:center;">
+      Servizio erogato da <strong style="color:rgba(240,237,232,0.3);">S.A.I. Etruria S.R.L.S.</strong> &nbsp;·&nbsp;
+      Sede legale: Via Camponesto 19, 19038 Sarzana (SP) &nbsp;·&nbsp;
+      P.IVA / C.F.: 01534780117 &nbsp;·&nbsp;
+      REA: SP-228789 &nbsp;·&nbsp;
+      PEC: <a href="mailto:saietruria@pec.it" style="color:rgba(232,87,42,0.5);">saietruria@pec.it</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ PRIVACY POLICY MODAL ══ -->
+<div id="privacy-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+  <div style="background:#111318; border:1px solid rgba(255,255,255,0.08); border-radius:4px; max-width:680px; width:100%; max-height:85vh; overflow-y:auto; padding:48px 40px; position:relative;">
+    <button onclick="document.getElementById('privacy-modal').style.display='none'" style="position:absolute; top:20px; right:20px; background:none; border:none; color:rgba(240,237,232,0.4); font-size:24px; cursor:pointer;">✕</button>
+    <h2 style="font-family:'Cormorant Garamond'; font-size:28px; color:#f0ede8; margin-bottom:24px;">Privacy Policy</h2>
+    <div style="font-family:'Barlow'; font-size:14px; color:rgba(240,237,232,0.65); line-height:1.8;">
+      <p><strong style="color:#f0ede8;">Titolare del trattamento</strong><br>
+      Energia Fortezza · Sarzana (SP), Liguria<br>
+      Email: info@energiafortezza.it</p>
+      <p><strong style="color:#f0ede8;">Dati raccolti</strong><br>
+      Attraverso il modulo di contatto raccogliamo: nome, numero di telefono, indirizzo email e le informazioni che l'utente sceglie di condividere nel messaggio. I dati vengono utilizzati esclusivamente per rispondere alla richiesta.</p>
+      <p><strong style="color:#f0ede8;">Base giuridica</strong><br>
+      Il trattamento è basato sul consenso esplicito dell'interessato (art. 6, par. 1, lett. a del GDPR).</p>
+      <p><strong style="color:#f0ede8;">Conservazione dei dati</strong><br>
+      I dati vengono conservati per il tempo strettamente necessario a gestire la richiesta, e comunque non oltre 24 mesi dalla raccolta.</p>
+      <p><strong style="color:#f0ede8;">Condivisione con terzi</strong><br>
+      I dati non vengono ceduti, venduti o comunicati a terzi, salvo obblighi di legge. Le richieste vengono ricevute tramite Formspree (USA), che tratta i dati in conformità al GDPR.</p>
+      <p><strong style="color:#f0ede8;">Diritti dell'interessato</strong><br>
+      Hai diritto di accedere, rettificare, cancellare i tuoi dati o opporti al trattamento. Per esercitare i tuoi diritti scrivi a: info@energiafortezza.it</p>
+      <p><strong style="color:#f0ede8;">Cookie</strong><br>
+      Questo sito utilizza solo cookie tecnici necessari al funzionamento. Non vengono utilizzati cookie di profilazione o di terze parti senza consenso esplicito.</p>
+      <p style="font-size:12px; color:rgba(240,237,232,0.3);">Ultimo aggiornamento: marzo 2025</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COOKIE POLICY MODAL ══ -->
+<div id="cookie-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+  <div style="background:#111318; border:1px solid rgba(255,255,255,0.08); border-radius:4px; max-width:580px; width:100%; padding:48px 40px; position:relative;">
+    <button onclick="document.getElementById('cookie-modal').style.display='none'" style="position:absolute; top:20px; right:20px; background:none; border:none; color:rgba(240,237,232,0.4); font-size:24px; cursor:pointer;">✕</button>
+    <h2 style="font-family:'Cormorant Garamond'; font-size:28px; color:#f0ede8; margin-bottom:24px;">Cookie Policy</h2>
+    <div style="font-family:'Barlow'; font-size:14px; color:rgba(240,237,232,0.65); line-height:1.8;">
+      <p>Questo sito utilizza esclusivamente <strong style="color:#f0ede8;">cookie tecnici</strong> necessari al corretto funzionamento delle pagine (preferenze di navigazione, sessione).</p>
+      <p>Non vengono utilizzati cookie di profilazione, cookie di tracciamento o cookie di terze parti a scopo pubblicitario.</p>
+      <p>Non è richiesto il consenso per i cookie tecnici ai sensi dell'art. 122 del Codice Privacy e delle Linee Guida del Garante del 10 giugno 2021.</p>
+      <p style="font-size:12px; color:rgba(240,237,232,0.3);">Per maggiori informazioni: info@energiafortezza.it</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COOKIE BANNER ══ -->
+<div id="cookie-banner" style="position:fixed; bottom:0; left:0; right:0; background:#111318; border-top:1px solid rgba(232,87,42,0.2); z-index:9998; padding:20px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+  <p style="font-family:'Barlow'; font-size:13px; color:rgba(240,237,232,0.6); margin:0; flex:1; min-width:240px;">
+    Questo sito usa solo cookie tecnici necessari al funzionamento. Nessun cookie di profilazione.
+    <a href="#" onclick="document.getElementById('cookie-modal').style.display='flex'; return false;" style="color:var(--orange); text-decoration:none;"> Cookie Policy</a>
+  </p>
+  <div style="display:flex; gap:12px; flex-shrink:0;">
+    <button onclick="document.getElementById('cookie-banner').style.display='none'; localStorage.setItem('cookie-ok','1')"
+      style="background:var(--orange); border:none; color:#07070a; font-family:'Barlow Condensed'; font-size:12px; letter-spacing:.15em; text-transform:uppercase; padding:10px 24px; cursor:pointer; border-radius:2px;">
+      Accetta
+    </button>
+    <button onclick="document.getElementById('cookie-banner').style.display='none'; localStorage.setItem('cookie-ok','0')"
+      style="background:transparent; border:1px solid rgba(240,237,232,0.2); color:rgba(240,237,232,0.5); font-family:'Barlow Condensed'; font-size:12px; letter-spacing:.15em; text-transform:uppercase; padding:10px 24px; cursor:pointer; border-radius:2px;">
+      Rifiuta
+    </button>
+  </div>
+</div>
+<script>
+  if(localStorage.getItem('cookie-ok') !== null) {
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>
